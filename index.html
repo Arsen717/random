@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        
+        table = `<table width = '600px' height = '600px' style = 'border: 1px solid black'> `
+           a = 16
+           b = 16
+
+        for (var i = 0; i <= a; i++) {
+            table += `<tr >`;
+            for (var j = 0; j <= b; j++) {
+               
+                z = httpGet('http://localhost:4000')
+                if (z == 0){
+                    table += `<td style = "background-color :blue"> `
+                    
+                } 
+                else if (z == 1 || z == 2 || z == 3 ){
+                    table += `<td style = "background-color :brown"> `
+                    
+                }
+                else{
+                    table += `<td style = "background-color :grey">`
+                    
+                }
+              table += `</td>`                  
+            } 
+            table += `</tr>`           
+           
+        }
+            table += `</table>`
+            document.write(table)
+            
+            function httpGet(theUrl){
+            
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false ); 
+            xmlHttp.send( null );
+            return xmlHttp.responseText;
+        }
+        
+    </script>
+    <script src="./index.js"></script>
+</body>
+</html>
